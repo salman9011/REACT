@@ -237,4 +237,64 @@ console.log(0 && "something"); // cox 0 is falsy
  //it jus resolves the problem of short circuit of falsy value of || operator//
  console.log(book.reviews.librarything.reviewsCount ?? "no data");
 
+ //*********************!SOME IMPORTANT JS FUNCTIONS********************//
+ // **MAP// : It is used to create new array with some operations on original array on each element , it takes call back*/
+ //suppose we want titles from array of books
+ const getTitles = books.map((book) => book.title);
+ getTitles;
+  
+ // we can also do some computations or return some object , suppose we want data as title and author//
+ // here is edge if we have to return or used multiple data we can't use directly {} as arrow functions treats it as a declearation block//
+ // we can avoid this either by return or ()
+
+const essentialData = books.map((book) =>{
+  return{
+   title : book.title,
+   author: book.author
+  };
+}
+);
+ essentialData
+// now with out return
+const withoutCurly = books.map((book)=>({
+  title : book.title,
+   author: book.author 
+}))
+withoutCurly
+//* in General  If you don’t use curly braces, JavaScript assumes an implicit return, meaning it automatically returns the result of the expression.
+// *  When you use curly braces, you create a function body, and in this case, you need to explicitly return a value with the return keyword.otherwise it understands it as declearation block//
+
+// *FILTER : // it returns the value or element based on condition , if the condition is true then element goes into the new array//
+const longBooks = books.filter ((book)=>book.pages>500);
+console.log(longBooks);
+ // we can also use filter again based on above filtered data//
+ const longBooksFiltered = books.filter((book) => book.pages > 500).filter((book)=>book.hasMovieAdaptation);
+ console.log(longBooksFiltered);
+  //better way of saying this is filter those books which include adventure then we need title of those books
+   const advanturedBooks = books.filter((book) => book.genres.includes("adventure")).map((book)=>book.title);
+   console.log(advanturedBooks);
+
+   //*REDUCE:  this method is overrides all other methods, infact we can implement all other functions with the reduce method, but things wiil be complex//
+   //? the global of reduce is to reduce all the entire array into single value, it takes call back and 2nd argument it takes as starting value//
+   //lets read all pages of array
+   const pagesAllBooks = books.reduce ((acc,book)=> acc+ book.pages);
+   console.log(pagesAllBooks);
+   // acc is accumulator we can replace it to sum name as well , the starter of acc is 0//
+
+   //! Now we can sort arrays using sort method , but it effects the original array , but we don't want that on front end//
+   //? for that we use slice
+   const arr =[1,2,3,4,44,55,64,32,432];
+   const sorted = arr.sort((a,b) => a-b); //acending order if (b-a ) then it will sort decending order
+   console.log(arr); // here original array is effected  
+   //lets use slice
+   const arr2 =[1,2,3,4,44,55,64,32,432, 659,33,22];
+   const sortedArray = arr.slice().sort((a,b) => a-b);
+console.log(arr2) // here original array is not effected//
+console.log(sortedArray)
+
+//lets sort pages//
+const sortedPage = books.slice().sort((a,b) => a.pages-b.pages);
+console.log(sortedPage);
+
+
 
