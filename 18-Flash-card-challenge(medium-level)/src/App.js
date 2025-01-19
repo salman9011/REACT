@@ -46,7 +46,7 @@ const questions = [
 function FlashCards() {
   const [result, setResult] = useState(null);
   function handleClick(id) {
-    //? with this condition it will flash the Flash Card , if we set id directl then it will  not flash card back to question onclick
+    //! with this condition it will flash the Flash Card , if we set id directl then it will  not flash card back to question onclick
     setResult(id !== result ? id : null);
   }
   return (
