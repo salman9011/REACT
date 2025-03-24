@@ -1,0 +1,40 @@
+{
+  "cities": [
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": "98443197"
+    },
+    {
+      "id": "1b9b",
+      "cityName": "Nova Ves u Svetle",
+      "country": "Czechia",
+      "emoji": "🇨🇿",
+      "date": "2025-03-22T10:37:05.262Z",
+      "notes": "d",
+      "position": {
+        "lat": "49.65796068651333",
+        "lng": "15.443853632679875"
+      }
+    },
+    {
+      "id": "da6e",
+      "cityName": "Zwettl Stadt",
+      "country": "Austria",
+      "emoji": "🇦🇹",
+      "date": "2025-03-22T10:37:08.514Z",
+      "notes": "ddd",
+      "position": {
+        "lat": "48.59285056746347",
+        "lng": "15.071172507821403"
+      }
+    }
+  ]
+}
