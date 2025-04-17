@@ -24,15 +24,15 @@ function City() {
   const { id } = useParams();
    //it is a hook that is used to get the query string from the url
   const { currentCity, isLoading , getCities} = useCities();
-  console.log(currentCity,"hhhhhhhhhhhhhhhhhhh")
   const { cityName, date, notes, emoji } = currentCity;
   useEffect(
     function () {
       getCities(id);
     },
-    [id]
+    [id,getCities]
   );
-
+//if we do (getCities) as dependency array , it will create most of wasted renders
+// cox the function is called again and again and created again , so for that lets use use Call back
   if (isLoading) return <Spinner />;
   return (
     <div className={styles.city}>

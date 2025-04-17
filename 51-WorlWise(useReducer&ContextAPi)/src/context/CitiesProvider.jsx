@@ -107,7 +107,7 @@
 // export { CitiesProvider, useCities };
 
 //! Lets combine the context with useReducer which is common practice in react applications
-import { createContext, useContext, useEffect, useReducer} from "react";
+import { createContext, useCallback, useContext, useEffect, useReducer} from "react";
 
 const BASE_URL = "http://localhost:9000";
 const CitiesContext = createContext();
@@ -172,7 +172,7 @@ function CitiesProvider({ children }) {
     fetchCities();
   }, []);
 
-  async function getCities(id) {
+ const getCities = useCallback(async function getCities(id) {
     if (Number(id) === currentCity.id) return;
     // cox the id is coming from url as string and currentCity.id is number so we need to convert it to number
     dispatch({ type: "loading" });
@@ -186,7 +186,7 @@ function CitiesProvider({ children }) {
         payload: "There was an error loading the city",
       });
     }
-  }
+  },[currentCity.id]);
 //lets add cities to our fake api for that create post request
 async function createCities(newCity) {
   dispatch({ type: "loading" });
