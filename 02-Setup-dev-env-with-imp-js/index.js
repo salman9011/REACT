@@ -160,7 +160,7 @@ const data = [
 // **************!DESTRUCTRING*************//
 //*lets use for objects (relay on object properties)
 const {title,author,publicationDate,pages,genres} = book;
-console.log(title, author,publicationDate,genres);
+console.log("quokka 1",title, author,publicationDate,genres);
 
 //* lets use for arrays (relays on order of element in array)
 // const primaryGeners = book.genres[0];
@@ -176,14 +176,14 @@ console.log(title, author,publicationDate,genres);
 //************!REST AND SPREAD OPERATOR (for arrays)**********************//
 //for suppose we want the primary and secondary genres also we want the whole genres array , or other than primary secondary we want genres , we can use rest operator
 const [primaryGeners, secondaryGeners, ...otherGenres] = genres;
-console.log(primaryGeners, secondaryGeners, ...otherGenres );
+console.log("seprad and rest ",primaryGeners, secondaryGeners, ...otherGenres );
 
 //* now we want to create new array of genres , a new one at the end into existing genres array
 // const newGenres = [genres,'epic fantasy']
 // console.log(newGenres) // this will be array of array of genres , but we want single array for that we use spread operator
 
 const newGenres = [...genres,'epic fantasy'];
-console.log(newGenres)
+console.log("new generas",newGenres)
 // we can add this spread at first if we want add new elements at last or at last if we want add new element at first
 
 //*************!REST AND SPREAD OPERATOR (for Objects)
