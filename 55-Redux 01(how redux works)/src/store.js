@@ -1,5 +1,5 @@
  import { combineReducers, createStore } from 'redux';
-
+// jus like useReducer we create intail states 
 const intialStateAccount ={
     balance: 0,
     loan : 0,
@@ -11,8 +11,12 @@ const intialStateCustomer={
     nationalId: '',
     createdAt:''
 }
+// this is reducer fun which recives state and the action , it calculates the new state based on current state on recived action 
+//reducers r not allowed to modify the existing state , also not allowed to do any async logic and other sideeffect 
+//here we can pass directly intail state that is not in usereducer
  function accountReducer(state = intialStateAccount, action) {
     switch(action.type){
+      // back though action type are written in uppercase but then redux team suggests to write them like as below , as state domain and the event name
         case 'balance/deposit':
             return {
                 ...state,
